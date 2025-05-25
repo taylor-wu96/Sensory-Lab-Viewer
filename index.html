@@ -88,13 +88,14 @@
         height: 100%;
         border: none;
         overflow: hidden;
-        pointer-events: none;
+        /* pointer-events: none; */
       }
     </style>
   </head>
   <body>
     <iframe
       src="https://technoart.nthu.edu.tw/sensorylab/?p=31142"
+      sandbox="allow-scripts allow-forms allow-same-origin"
       allowfullscreen></iframe>
 
     <script>
@@ -114,6 +115,22 @@
             });
         });
       }
+      // setInterval(() => {
+      //   const iframe = document.querySelector("iframe");
+      //   try {
+      //     const currentSrc = iframe.contentWindow.location.href;
+      //     console.log("currentSrc", currentSrc);
+      //     // Optional: restrict if URL is not the desired one
+      //     // if (
+      //     //   !currentSrc.startsWith("https://technoart.nthu.edu.tw/sensorylab/")
+      //     // ) {
+      //     //   alert("Navigation outside of domain blocked!");
+      //     //   iframe.src = "https://technoart.nthu.edu.tw/sensorylab/?p=31142";
+      //     // }
+      //   } catch (e) {
+      //     // Cross-origin error — cannot inspect iframe location
+      //   }
+      // }, 1000);
     </script>
   </body>
 </html>
