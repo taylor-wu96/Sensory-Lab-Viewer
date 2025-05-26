@@ -90,14 +90,40 @@
         overflow: hidden;
         /* pointer-events: none; */
       }
+      #home-button {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        width: 60px;
+        height: 60px;
+
+        background-color: #1b1d1d;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 40px;
+        cursor: pointer;
+        z-index: 1000;
+        user-select: none;
+        transition: background-color 0.3s ease;
+      }
+      #home-button:hover {
+        background-color: #000000;
+      }
     </style>
   </head>
   <body>
     <iframe
+      id="content-frame"
       src="https://technoart.nthu.edu.tw/sensorylab/?p=31142"
       sandbox="allow-scripts allow-forms allow-same-origin"
       allowfullscreen></iframe>
-
+    <div id="home-button">回首頁</div>
     <script>
       // Register service worker for PWA functionality
       if ("serviceWorker" in navigator) {
@@ -115,6 +141,10 @@
             });
         });
       }
+      document.getElementById("home-button").addEventListener("click", () => {
+        const iframe = document.getElementById("content-frame");
+        iframe.src = "https://technoart.nthu.edu.tw/sensorylab/?p=31142";
+      });
       // setInterval(() => {
       //   const iframe = document.querySelector("iframe");
       //   try {
